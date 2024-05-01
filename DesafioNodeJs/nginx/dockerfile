@@ -1,0 +1,10 @@
+FROM nginx:1.15.0-alpine
+
+# Removendo o arquivo de configuração padrão
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copiando o arquivo de configuração personalizado
+COPY nginx.conf /etc/nginx/conf.d
+
+
+CMD [ "nginx", "-g", "daemon off;" ]
